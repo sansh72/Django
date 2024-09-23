@@ -1,0 +1,6 @@
+<h2>Webinar Registrations</h2>
+<ul>
+    {% for registration in registrations %}
+        <li>{{ registration.name }} - {{ registration.email }} - {{ registration.webinar_title }} - {{ registration.webinar_date }}</li>
+    {% endfor %}
+</ul>
