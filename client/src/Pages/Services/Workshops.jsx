@@ -3,23 +3,28 @@ import Para from "@/components/ui/Paragraph/Para";
 import Button from "@/components/ui/Button/Button";
 import Faqs from "@/components/ui/Faqs/Faqs";
 import Card from "@/components/ui/Cards/Cards";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
 const Workshops = () => {
+  const navigate = useNavigate()
   let name = [
-    "Full stack web Development",
+    "Full stack Development",
     "Python Development",
     "Java Development",
   ];
 
+  const Register = (name)=>{
+    navigate(`${name}`)
+  }
+
   return (
     <div className="font-serif">
-      <div className="flex mt-14">
+      <div className="flex mt-14 font-serif">
         <div className="flex flex-col justify-evenly items-start">
           <NavLink to="/home">
             <div className="flex m-8">
               <FaChevronLeft className="font-light text-5xl my-2 mx-2" />{" "}
-              <h1 className=" text-blue-600 font-bold">Workshops</h1>
+              <h1 className=" text-blue-600 font-bold font-serif">Workshops</h1>
             </div>
           </NavLink>
 
@@ -39,30 +44,30 @@ const Workshops = () => {
       <div className="text-center">
         {" "}
         <Button text="weekdays" className="p-8 m-20" />
-        <div className="flex justify-evenly">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <Card
             imgurl="/src/assets/images/full stack.svg"
-            topic="Full stack Development"
+            topic={`${name[0]}`}
             text="Slot:"
             time1="10:00AM to 01:00PM"
             time2="02:00PM to 05:00PM"
-            to="/Ourmentor"
+            onclick={()=>Register(`${name[0]}`)}
           />
           <Card
             imgurl="/src/assets/images/java.png"
-            topic="Java Development"
+            topic={`${name[1]}`}
             text="Slot:"
             time1="10:00AM to 01:00PM"
             time2="02:00PM to 05:00PM"
-            to="/Ourmentor"
+            onclick={()=>Register(`${name[1]}`)}
           />
           <Card
             imgurl="/src/assets/images/python.png"
-            topic="Python Development"
+            topic={`${name[2]}`}
             text="Slot:"
             time1="10:00AM to 01:00PM"
             time2="02:00PM to 05:00PM"
-            to="/Ourmentor"
+            onclick={()=>Register(`${name[2]}`)}
           />
         </div>
         <div className="text-left m-14 bg-green-100 p-4">

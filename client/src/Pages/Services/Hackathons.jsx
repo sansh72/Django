@@ -14,8 +14,6 @@ const Hackathons = () => {
     "AI Skill Challenge",
   ];
   const Register = (name)=>{
-    
-    
     navigate(`${name}`)
   }
 

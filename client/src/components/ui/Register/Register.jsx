@@ -1,37 +1,22 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 
-
 const Register = ({ className }) => {
-
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    slot1: false,
-    slot2: false,
-    radioOption: '',  // How did you hear about the webinar
-    webinarTitle: 'Webinar Title Here',  // Set dynamically
-    webinarDate: '2024-09-25',  // Example date, adjust as needed
-  });
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value
-    });
-  };
-
+  const { webinar_title } = useParams();
+  const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const formData2 = new FormData(e.target);
+      const formData = new FormData(e.target);
+      formData.append('webinar_title' , webinar_title)
 
-      
-      const response = await axios.post('http://localhost:8000/api/registrations/', formData2);
-      console.log(response.data);
+      const response = await axios.post('http://localhost:8000/api/registrations/', formData)
+      .then(res => {
+        console.log(res.data);
+        
+        navigate(`${formData.get('first_name')} + ${formData.get('last_name')}`)
+      })
     } catch (error) {
       console.error("There was an error submitting the form!", error);
     }
@@ -57,7 +42,7 @@ const Register = ({ className }) => {
               placeholder="First Name"
               className="mt-1 block w-full px-3 py-2 border border-blue-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
-              onChange={handleChange}
+              
             />
           </div>
           <div>
@@ -70,25 +55,11 @@ const Register = ({ className }) => {
               name="last_name"
               placeholder="Last Name"
               className="mt-1 block w-full px-3 py-2 border border-blue-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-              onChange={handleChange}
+              
+              
             />
           </div>
-          <input
-              type="text"
-              id="lastName"
-              name="source"
-              placeholder="source"
-              className="mt-1 block w-full px-3 py-2 border border-blue-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <input
-              type="text"
-              id="lastName"
-              name="webinar_title"
-              placeholder="webinar_title"
-              className="mt-1 block w-full px-3 py-2 border border-blue-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              
+          
           <div>
             <label className="block text-sm font-medium text-blue-600">
               Email
@@ -100,8 +71,9 @@ const Register = ({ className }) => {
               placeholder="Email ID"
               className="mt-1 block w-full px-3 py-2 border border-blue-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
-              onChange={handleChange}
+              
             />
+            <br />
             <input type="date" name="webinar_date" id="webinar_date" className="mt-1 block w-full px-3 py-2 border border-blue-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                />
           </div>
@@ -114,9 +86,7 @@ const Register = ({ className }) => {
                 <input
                   type="checkbox"
                   id="checkbox1"
-                  name="checkbox1"
-                  checked={formData.checkbox1}
-                  onChange={handleChange}
+                  name="slot_1"
                   className="h-4 w-4 text-blue-600 border-blue-300 rounded"
                 />
                 <label className="ml-2 text-sm  text-black-600">
@@ -127,9 +97,7 @@ const Register = ({ className }) => {
                 <input
                   type="checkbox"
                   id="checkbox2"
-                  name="checkbox2"
-                  checked={formData.checkbox2}
-                  onChange={handleChange}
+                  name="slot_2"
                   className="h-4 w-4 text-blue-500 border-blue-300 rounded"
                 />
                 <label className="ml-2 text-sm  text-black-600">
@@ -149,10 +117,8 @@ const Register = ({ className }) => {
                 <input
                   type="radio"
                   id="radio1"
-                  name="radioOption"
-                  value="option1"
-                  checked={formData.radioOption === 'Social Media'}
-                  onChange={handleChange}
+                  name="source"
+                  value="Social Media"
                   className="h-4 w-4 text-blue-600 border-blue-300 rounded-full"
                 />
                 <label className="ml-2 text-sm text-black-600">
@@ -163,10 +129,8 @@ const Register = ({ className }) => {
                 <input
                   type="radio"
                   id="radio2"
-                  name="radioOption"
-                  value="option2"
-                  checked={formData.radioOption === 'Word of Mouth'}
-                  onChange={handleChange}
+                  name="source"
+                  value="Word of Mouth"
                   className="h-4 w-4 text-blue-600 border-blue-300 rounded-full"
                 />
                 <label htmlFor="radio2" className="ml-2 text-sm text-black-600">
@@ -177,10 +141,8 @@ const Register = ({ className }) => {
                 <input
                   type="radio"
                   id="radio3"
-                  name="radioOption"
-                  value="option3"
-                  checked={formData.radioOption === 'Advertisement'}
-                  onChange={handleChange}
+                  name="source"
+                  value="Advertisement"
                   className="h-4 w-4 text-blue-600 border-gray-300 rounded-full"
                 />
                 <label htmlFor="radio3" className="ml-2 text-sm text-black-600">
@@ -191,10 +153,8 @@ const Register = ({ className }) => {
                 <input
                   type="radio"
                   id="radio4"
-                  name="radioOption"
-                  value="option4"
-                  checked={formData.radioOption === 'Other'}
-                  onChange={handleChange}
+                  name="source"
+                  value="Other"
                   className="h-4 w-4 text-blue-600 border-blue-300 rounded-full"
                 />
                 <label htmlFor="radio4" className="ml-2 text-sm text-black-600">

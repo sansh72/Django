@@ -5,7 +5,7 @@ import Footer from '../ui/Footer/Footer'
 
 const NavFooter = () => {
   return (
-    <div>
+    <div className=' font-serif'>
         <Navbar/>
         <Outlet/>
         <Footer/>

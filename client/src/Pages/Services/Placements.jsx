@@ -22,7 +22,7 @@ const Placements = () => {
 
   return (
     <div className="font-serif">
-      <div className="flex mt-12 ">
+      <div className="md:flex mt-12 ">
       <div className="flex flex-col justify-evenly items-start">
       <NavLink to="/home">
         <div className="flex m-8">

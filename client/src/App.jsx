@@ -48,13 +48,23 @@ function App() {
           <Route path="/ourmentor" element={<Ourmentor />} />
 
           <Route path="/services">
-            <Route path="worksops" element={<Workshops />} />
-            <Route path="webinars" element={<Webinar />} />
+            
+            
             <Route path="placementsupport" element={<Placements />} />
             <Route path="internships" element={<Internships />} />
+
             <Route path="hackathons" element={<Hackathons />} />
             <Route path="hackathons/:name" element={<RegisterHackathon />} />
             <Route path="hackathons/:name/:info" element={<HackathonDetail />} />
+
+            <Route path="webinars" element={<Webinar />} />
+            <Route path="webinars/:webinar_title" element={<Register />} />
+            <Route path="webinars/:name/:info" element={<Thanku />} />
+
+            <Route path="worksops" element={<Workshops />} />
+            <Route path="worksops/:webinar_title" element={<Register />} />
+            <Route path="worksops/:name/:info" element={<Thanku />} />
+
             <Route path="projects" element={<Projects />} />
             <Route path="research" element={<Research />} />
             <Route path="startup" element={<StartUpProgram />} />
@@ -88,7 +98,6 @@ function App() {
         </Route>
 
           <Route>
-            <Route path="Register" element={<Register />} />
             <Route path="Thanku" element={<Thanku />} />
             <Route path="Reviews" element={<Reviews />} />
             <Route path="/login" exact element={<Login />} />

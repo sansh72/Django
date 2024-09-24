@@ -21,8 +21,8 @@ const Card = (props) => {
         <h4 className=" w-20 mt-2 ml-2 text-white bg-red-600 font-semibold">
           • Live
         </h4>
-        <button className="bg-blue-600 text-white px-8 py-2 rounded-full mt-4 ml-auto block">
-          <NavLink to={props.to}>Register</NavLink>
+        <button onClick={props.onclick} className="bg-blue-600 text-white px-8 py-2 rounded-full mt-4 ml-auto block">
+          Register
         </button>
       </div>
     </div>

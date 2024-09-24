@@ -57,6 +57,8 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+
+
 ROOT_URLCONF = 'webinar_project.urls'
 
 TEMPLATES = [

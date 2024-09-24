@@ -122,6 +122,7 @@ const RegisterHackathon = ({ className }) => {
               // required
             />
           </div>
+        
 
           {/* Submit Button */}
           <div className="text-center">
