@@ -8,6 +8,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.core.mail import send_mail
 from django.conf import settings
+import logging
+
+logger = logging.getLogger('django')
 
 def send_confirmation_email(user_email):
    send_mail(
@@ -17,6 +20,19 @@ def send_confirmation_email(user_email):
       [user_email],
       fail_silently=False,
       )
+   
+class WebinarRegistrationList(generics.ListCreateAPIView):
+    queryset = WebinarRegistration.objects.all()
+    serializer_class = RegistrationSerializer
+    def perform_create(self, serializer):
+        # Save the registration
+        instance = serializer.save()
+        # Send confirmation email after registration
+        send_confirmation_email(instance.email)
+
+
+
+# Response is send using serailizers of this above method and this above method is responsible for handling emials and registraions of webinar
 
 def register_webinar(request):
  if request.method == 'POST':
@@ -39,22 +55,21 @@ def view_registrations(request):
 
 
 
-class WebinarRegistrationList(generics.ListCreateAPIView):
-    queryset = WebinarRegistration.objects.all()
-    serializer_class = RegistrationSerializer
 
 
 
 class WebinarRegistrationAPI(APIView):
     def post(self, request, *args, **kwargs):
         serializer = RegistrationSerializer(data=request.data)
+        
         if serializer.is_valid():
             # Save the valid data to the database    
             serializer.save()
 
             # Send confirmation email to the email provided in the API data
             user_email = serializer.data.get('email')
-            print(' Email  ', user_email)
+            logger.debug(f'Email: {user_email}')
+            
             send_confirmation_email(user_email)
            
             # Return a success message and the saved data in the response
