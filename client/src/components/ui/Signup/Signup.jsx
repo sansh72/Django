@@ -39,6 +39,7 @@ const Signup = () => {
     if (response.ok) {
       const data = await response.json();
       console.log('Success:', data);
+      localStorage.setItem("username", data.username)
       navigate('/home');
     } else {
       const errorData = await response.json();

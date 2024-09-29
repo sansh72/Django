@@ -1,12 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaHome, FaChevronDown, FaChevronUp, FaBars, FaTimes } from "react-icons/fa";
 import goLogo from "./../../../assets/images/Go-Hackthon.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import axiosInstance from "@/axiosInstance";
 
 const Navbar = () => {
   const [trainingOpen, setTrainingOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [login, setLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // For hamburger menu
+  const navigate = useNavigate()
+
+
+  const clearUsername = () => {
+    if(!login)
+    navigate('login')
+    localStorage.clear()
+    setLogin(false)
+  }
+
+  const findUser = () => {
+    const username =  localStorage.getItem("username")
+    axiosInstance.get(`finduser/${username}`)
+    .then(res => {
+      console.log(res)
+      setLogin(true)
+      })
+    .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    findUser()
+  }, [])
+  
 
   const toggleTraining = () => {
     setServicesOpen(false); // Close services dropdown if open
@@ -31,6 +57,7 @@ const Navbar = () => {
     setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
   };
 
+  
   return (
     <div className="Navbar mt-10 flex justify-between lg:justify-around relative font-serif">
       <img
@@ -291,11 +318,15 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="flex items-center">
-          <NavLink to="/login" className="hover:underline">
-            <button className="bg-white text-[#0071D1] px-4 py-2 rounded-[10px]">
-              Log In/Sign Up
+          <button  className="hover:underline">
+            <button onClick={clearUsername} className="bg-white text-[#0071D1] px-4 py-2 rounded-[10px]">
+             {
+              !login ? 
+              "Log In/Sign Up":
+              "Logout"
+             } 
             </button>
-          </NavLink>
+          </button>
           </li>
         </ul>
       </nav>
@@ -586,9 +617,13 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className="block">
-              Log In/Sign Up
-            </NavLink>
+            <button onClick={clearUsername} className="block">
+            {
+              !login ? 
+              "Log In/Sign Up":
+              "Logout"
+             } 
+            </button>
           </li>
         </ul>
       </div>
