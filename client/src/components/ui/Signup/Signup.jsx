@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Signup = () => {
   const [formData, setFormData] = useState({
     username: '',
+    email: '',
     password: '',
+    confirmPassword: '',
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -21,14 +23,16 @@ const Login = () => {
     e.preventDefault();
     setError(null);
 
-    const response = await fetch('http://localhost:8000/login/', {
+    const response = await fetch('http://localhost:8000/signup/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         username: formData.username,
+        email: formData.email,
         password: formData.password,
+        confirm_password: formData.confirmPassword,
       }),
     });
 
@@ -45,21 +49,36 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">Login</h2>
+        <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">Sign Up</h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username or Email
+              Username
             </label>
             <input
               type="text"
               id="username"
               name="username"
-              placeholder="Enter your username or email"
+              placeholder="Enter your username"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
               value={formData.username}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              value={formData.email}
               onChange={handleChange}
             />
           </div>
@@ -78,28 +97,43 @@ const Login = () => {
               onChange={handleChange}
             />
           </div>
+          <div>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
+          </div>
           <div className="text-center">
             <button
               type="submit"
               className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
-              Login
+              Sign Up
             </button>
           </div>
         </form>
         <div className="text-center mt-4">
-          <NavLink to="/signup">
+        <NavLink to="/login">
           <button
             type="button"
             className="text-sm text-blue-600 hover:underline focus:outline-none"
           >
-            Don’t have an account? Sign Up
+            Already have an account? Login
           </button>
-          </NavLink>
+        </NavLink>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

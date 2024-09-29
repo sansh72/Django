@@ -13,7 +13,7 @@ import Project from "./Pages/Training/4pProgram/Project";
 import Workshops from "./Pages/Services/Workshops";
 import Webinar from "./Pages/Services/Webinar";
 import Placements from "./Pages/Services/Placements";
-import Internships from "./Pages/Services/Internships";
+import Internships from "./Pages/Services/Internships/Internships";
 import AiAndMl from "./Pages/Training/AdvancedLearning/AiAndMl";
 import CyberSecurity from "./Pages/Training/AdvancedLearning/CyberSecurity";
 import Testing from "./Pages/Training/AdvancedLearning/Testing";
@@ -34,10 +34,20 @@ import Reviews from "./components/ui/Trainer/Reviews";
 import Trainings from "./Pages/Services/Trainings";
 import RegisterHackathon from "./components/ui/Register/RegisterHackathon";
 import HackathonDetail from "./Pages/Services/HackathonDetail";
+import Registration from "./Pages/Services/Internships/Registration";
+import RegisterSuccess from "./Pages/Services/Internships/RegisterSuccess";
+import Signup from "./components/ui/Signup/Signup";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+
+          <Route>
+            <Route path="Thanku" element={<Thanku />} />
+            <Route path="Reviews" element={<Reviews />} />
+            <Route path="/login" exact element={<Login />} />
+            <Route path="/signup" exact element={<Signup />} />
+          </Route>
         
         <Route path="/" element={<NavFooter />}>
           <Route path="/" element={<Home />} />
@@ -52,6 +62,8 @@ function App() {
             
             <Route path="placementsupport" element={<Placements />} />
             <Route path="internships" element={<Internships />} />
+            <Route path="internships/:coursename" element={<Registration />} />
+            <Route path="internships/:coursename/:name" element={<RegisterSuccess />} />
 
             <Route path="hackathons" element={<Hackathons />} />
             <Route path="hackathons/:name" element={<RegisterHackathon />} />
@@ -97,11 +109,7 @@ function App() {
           </Route>
         </Route>
 
-          <Route>
-            <Route path="Thanku" element={<Thanku />} />
-            <Route path="Reviews" element={<Reviews />} />
-            <Route path="/login" exact element={<Login />} />
-          </Route>
+          
       </Routes>
     </BrowserRouter>
   );

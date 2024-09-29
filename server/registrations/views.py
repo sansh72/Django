@@ -20,19 +20,6 @@ def send_confirmation_email(user_email):
       [user_email],
       fail_silently=False,
       )
-   
-class WebinarRegistrationList(generics.ListCreateAPIView):
-    queryset = WebinarRegistration.objects.all()
-    serializer_class = RegistrationSerializer
-    def perform_create(self, serializer):
-        # Save the registration
-        instance = serializer.save()
-        # Send confirmation email after registration
-        send_confirmation_email(instance.email)
-
-
-
-# Response is send using serailizers of this above method and this above method is responsible for handling emials and registraions of webinar
 
 def register_webinar(request):
  if request.method == 'POST':
@@ -41,7 +28,6 @@ def register_webinar(request):
         form.save()
         # Redirect or show a success message
         user_email = form.cleaned_data.get('email')  # Get the registered user's email
-        # print(user_email)
         send_confirmation_email(user_email)
         return redirect('success_page')
  else:
@@ -55,13 +41,19 @@ def view_registrations(request):
 
 
 
-
+class WebinarRegistrationList(generics.ListCreateAPIView):
+    queryset = WebinarRegistration.objects.all()
+    serializer_class = RegistrationSerializer
+    def perform_create(self, serializer):
+        # Save the registration
+        instance = serializer.save()
+        # Send confirmation email after registration
+        send_confirmation_email(instance.email)
 
 
 class WebinarRegistrationAPI(APIView):
     def post(self, request, *args, **kwargs):
         serializer = RegistrationSerializer(data=request.data)
-        
         if serializer.is_valid():
             # Save the valid data to the database    
             serializer.save()
@@ -75,7 +67,7 @@ class WebinarRegistrationAPI(APIView):
             # Return a success message and the saved data in the response
             return Response({
                 'message': 'Registration successful',
-                'data': {**serializer.data, 'message': 'Registered'},  # Merging dictionaries
+                'data': serializer.data
             }, status=status.HTTP_201_CREATED)
 
         # If the data is not valid, return errors with a 400 Bad Request status

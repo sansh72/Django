@@ -34,8 +34,8 @@ const Internships = () => {
     setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
   };
 
-  const Change = () => {
-    navigate("/home");
+  const Change = (name) => {
+    navigate(`${name}`);
   };
 
   return (
@@ -89,7 +89,7 @@ const Internships = () => {
                     }`}
                   >
                     <CourseCard
-                      onclick={Change}
+                      onclick={()=>Change(partner.name)}
                       img={partner.img}
                       CourseName={partner.name}
                       btnName="Apply"
@@ -98,6 +98,7 @@ const Internships = () => {
                 );
               })}
             </div>
+            
           </div>
           <FaChevronRight
             onClick={nextSlide}
