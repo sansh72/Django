@@ -3,8 +3,12 @@ import { FaHome, FaChevronDown, FaChevronUp, FaBars, FaTimes } from "react-icons
 import goLogo from "./../../../assets/images/Go-Hackthon.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import axiosInstance from "@/axiosInstance";
+import { useDispatch, useSelector } from "react-redux";
+import { clearAccessToken } from "@/store/authSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const accessToken = useSelector(state => state.auth.accessToken)
   const [trainingOpen, setTrainingOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [login, setLogin] = useState(false);
@@ -14,13 +18,13 @@ const Navbar = () => {
 
   const clearUsername = () => {
     if(!login)
-    navigate('login')
-    localStorage.clear()
+    navigate('/login')
+    dispatch(clearAccessToken());
     setLogin(false)
   }
 
   const findUser = () => {
-    const username =  localStorage.getItem("username")
+    const username =  accessToken;
     axiosInstance.get(`finduser/${username}`)
     .then(res => {
       console.log(res)
@@ -65,6 +69,7 @@ const Navbar = () => {
         alt="hg"
         className=" bg-cover object-cover bg-center max-h-20 aspect-auto"
       />
+    
       <nav className="hidden lg:flex w-[830px] h-[70px] bg-[#0071D1] rounded-full items-center justify-center relative z-50">
         <ul className="flex list-none items-center text-white text-lg space-x-6 mr-5 relative">
           <li className="flex items-center">

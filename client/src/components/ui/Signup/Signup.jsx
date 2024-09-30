@@ -1,7 +1,10 @@
+import { setAccessToken } from "@/store/authSlice";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -39,7 +42,7 @@ const Signup = () => {
     if (response.ok) {
       const data = await response.json();
       console.log('Success:', data);
-      localStorage.setItem("username", data.username)
+      dispatch(setAccessToken(data.username))
       navigate('/home');
     } else {
       const errorData = await response.json();

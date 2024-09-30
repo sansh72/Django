@@ -57,25 +57,25 @@ const About = () => {
         </div>
       </div>
       <h1 className="text-center m-28">Our Mentors</h1>
-      <div className="flex justify-evenly flex-col md:flex-row m-10 ">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 m-10 ">
         <MyCard
-          imgUrl="src/assets/images/picture1.png"
-          title="Rahul"
+          imgUrl="https://images.unsplash.com/photo-1534294668821-28a3054f4256?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          title="Person 1"
           description="Software Architect"
         />
         <MyCard
-          imgUrl="src/assets/images/picture2.png"
-          title="Riya"
+          imgUrl="https://images.unsplash.com/photo-1534294668821-28a3054f4256?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          title="Person 2"
           description="Tester"
         />
         <MyCard
-          imgUrl="src/assets/images/picture3.png"
-          title="Harsha"
+          imgUrl="https://images.unsplash.com/photo-1534294668821-28a3054f4256?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          title="Person 3"
           description="DevOps Engineer"
         />
         <MyCard
-          imgUrl="src/assets/images/picture4.png"
-          title="Swathi"
+          imgUrl="https://images.unsplash.com/photo-1534294668821-28a3054f4256?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          title="Person 4"
           description="UI / UX DESIGNER"
         />
       </div>
