@@ -3,6 +3,7 @@ asttokens==2.4.1
 attrs==24.2.0
 blinker==1.8.2
 gunicorn==23.0.0
+Flask==3.0.3
 certifi==2024.8.30
 cffi==1.17.1
 charset-normalizer==3.3.2
