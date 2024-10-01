@@ -1,1 +1,2 @@
-web: gunicorn Django.wsgi:application
+web: gunicorn server.webinar_project.wsgi:application
+
