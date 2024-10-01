@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-a)fp&ujlcwci8mjy)5$89e3jul
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['django-1-oiac.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['django-1-oiac.onrender.com', 'localhost', 'django-3-cbdx.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -46,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins for development; change this for production
 
 ROOT_URLCONF = 'webinar_project.urls'
 
