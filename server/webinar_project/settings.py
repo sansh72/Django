@@ -46,7 +46,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins for development; change this for production
+CORS_ALLOWED_ORIGINS = [
+    'https://django-3-cbdx.onrender.com',  # Your frontend URL
+]
+
 
 ROOT_URLCONF = 'webinar_project.urls'
 
