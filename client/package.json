@@ -5,6 +5,7 @@
   "type": "module",
   "serve": "^14.0.1",
   "scripts": {
+    "start": "serve -s dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
