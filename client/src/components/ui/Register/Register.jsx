@@ -11,7 +11,7 @@ const Register = ({ className }) => {
       const formData = new FormData(e.target);
       formData.append('webinar_title' , webinar_title)
 
-      const response = await axios.post('http://localhost:8000/api/registrations/', formData)
+      const response = await axios.post('https://django-1-oiac.onrender.com/registrations/', formData)
       .then(res => {
         console.log(res.data);
         
