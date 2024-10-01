@@ -18,27 +18,24 @@
     "react-simple-typewriter": "^5.0.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "serve": "^14.0.1" 
+    "serve": "^14.0.1"  // Ensure serve is listed here
+  },
+  "scripts": {
+    "start": "serve -s dist",   // Command to serve static files
+    "build": "echo 'No build step required'", // Placeholder if no build step is needed
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "postcss": "^8.4.41",
-    "tailwindcss": "^3.4.10",
-    "vite": "^5.4.1"  
-  "scripts": {
-    "start": "serve -s dist",  
-    "dev": "vite",              
-    "build": "echo 'No build required'", 
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "tailwindcss": "^3.4.10"
   }
 }
+
