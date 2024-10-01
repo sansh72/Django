@@ -18,11 +18,11 @@
     "react-simple-typewriter": "^5.0.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "serve": "^14.0.1"  // Ensure serve is listed here
+    "serve": "^14.0.1" 
   },
   "scripts": {
-    "start": "serve -s dist",   // Command to serve static files
-    "build": "echo 'No build step required'", // Placeholder if no build step is needed
+    "start": "serve -s dist",   
+    "build": "echo 'No build step required'", 
     "lint": "eslint ."
   },
   "devDependencies": {
