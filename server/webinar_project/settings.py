@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-a)fp&ujlcwci8mjy)5$89e3jul
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['django-2-3o61.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['django-1-oiac.onrender.com', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
