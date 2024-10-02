@@ -9,24 +9,42 @@ const Register = ({ className }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData(e.target);
-      formData.append('webinar_title', webinar_title);
+        const formData = new FormData(e.target);
+        formData.append('webinar_title', webinar_title);
 
-      // Append checkbox values
-      formData.append('slot_1', e.target.slot_1.checked);
-      formData.append('slot_2', e.target.slot_2.checked);
+        // Append checkbox values
+        formData.append('slot_1', e.target.slot_1.checked);
+        formData.append('slot_2', e.target.slot_2.checked);
 
-      const response = await axios.post('https://django-1-oiac.onrender.com/api/registrations/', formData);
-      
-      console.log(response.data);
-      // Navigate to the success page with the names
-      navigate(`/success/${formData.get('first_name')} ${formData.get('last_name')}`);
+        // Log the entire FormData object as key-value pairs
+        console.log('Form Data:', [...formData]);  // This logs the key-value pairs of formData
+
+        // Log individual form fields (optional, for detailed checks)
+        console.log('First Name:', formData.get('first_name'));
+        console.log('Last Name:', formData.get('last_name'));
+        console.log('Email:', formData.get('email'));
+        console.log('Webinar Date:', formData.get('webinar_date'));
+        console.log('Slot 1:', e.target.slot_1.checked);  // Checkboxes
+        console.log('Slot 2:', e.target.slot_2.checked);
+        console.log('Source:', e.target.source.value);  // Radio button value
+
+        const response = await axios.post('https://django-1-oiac.onrender.com/api/registrations/', formData);
+        
+        // Log the response from the server
+        console.log('Response:', response.data);
+
+        // Navigate to the success page with the names
+        navigate(`/success/${formData.get('first_name')} ${formData.get('last_name')}`);
     } catch (error) {
-      console.error("There was an error submitting the form!", error);
-      // Optionally, display an error message to the user
-      alert("Registration failed. Please check the form and try again.");
+        console.error("There was an error submitting the form!", error);
+        // Log the error response from the server, if available
+        if (error.response) {
+            console.error("Error Response:", error.response.data); // This logs the detailed error from the backend
+        }
+        alert("Registration failed. Please check the form and try again.");
     }
-  };
+};
+
 
   return (
     <div className={`flex items-center justify-center min-h-screen ${className}`}>
