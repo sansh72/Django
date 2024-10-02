@@ -47,7 +47,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://django-3-cbdx.onrender.com',  # Your frontend URL
+    'https://django-61.onrender.com',  # Your frontend URL
 ]
 
 
