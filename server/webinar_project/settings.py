@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-a)fp&ujlcwci8mjy)5$89e3jul
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['django-1-oiac.onrender.com', 'localhost', 'django-3-cbdx.onrender.com']
+ALLOWED_HOSTS = ['django-1-oiac.onrender.com', 'localhost', 'django-3-cbdx.onrender.com','django-61.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -47,7 +47,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://django-61.onrender.com',  # Your frontend URL
+    'https://django-61.onrender.com',
+    'https://django-3-cbdx.onrender.com',
+    # Your frontend URL
 ]
 
 
