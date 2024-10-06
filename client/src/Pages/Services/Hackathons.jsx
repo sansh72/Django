@@ -42,7 +42,7 @@ const Hackathons = () => {
       <div className="text-center">
         {" "}
         <Button text="weekdays" className=" m-40" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <HackathonCard
             imgurl="https://static.vecteezy.com/system/resources/previews/011/161/241/large_2x/ai-glowing-chip-free-vector.jpg"
             topic={`${name[2]}`}
