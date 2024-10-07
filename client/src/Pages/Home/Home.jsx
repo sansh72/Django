@@ -8,15 +8,15 @@ import { NavLink } from "react-router-dom";
 const Home = () => {
   let name = ["Hackathons", "Workshop", "Webinar", "Trainings", "Mentiorship"];
   let images = {
-    a: "src/assets/images/Workshop-img-services.svg",
-    b: "src/assets/images/webiner-img-services.svg",
-    c: "src/assets/images/Training-img-services.svg",
-    d: "src/assets/images/startup-img-services.svg",
-    e: "src/assets/images/hackthons-img-services.svg",
-    f: "src/assets/images/internships-img-services.svg",
-    g: "src/assets/images/projects-img-services.svg",
-    h: "src/assets/images/placement-img-services.svg",
-    i: "src/assets/images/research-img-services.svg",
+    a: "/src/assets/images/Workshop-img-services.svg",
+    b: "/src/assets/images/webiner-img-services.svg",
+    c: "/src/assets/images/Training-img-services.svg",
+    d: "/src/assets/images/startup-img-services.svg",
+    e: "/src/assets/images/hackthons-img-services.svg",
+    f: "/src/assets/images/internships-img-services.svg",
+    g: "/src/assets/images/projects-img-services.svg",
+    h: "/src/assets/images/placement-img-services.svg",
+    i: "/src/assets/images/research-img-services.svg",
   };
   return (
     <div className="font-serif">
@@ -27,7 +27,7 @@ const Home = () => {
           names={name}
         />
         <img
-          src="src/assets/images/hero-section-header-img.svg"
+          src="/src/assets/images/hero-section-header-img.svg"
           className="h-96 mt-20"
         ></img>
       </div>
