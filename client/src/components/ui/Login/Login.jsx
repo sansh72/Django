@@ -25,17 +25,16 @@ const Login = () => {
     e.preventDefault();
     setError(null);
 
-      const response = await fetch('https://django-1-oiac.onrender.com/login/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username: formData.username,
-      password: formData.password,
-    }),
-  });
-
+    const response = await fetch('https://django-1-oiac.onrender.com/login/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: formData.username,
+        password: formData.password,
+      }),
+    });
 
     if (response.ok) {
       const data = await response.json();
