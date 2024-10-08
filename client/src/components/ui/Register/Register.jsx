@@ -18,7 +18,16 @@ const Register = ({ className }) => {
         navigate(`${formData.get('first_name')} + ${formData.get('last_name')}`)
       })
     } catch (error) {
-      console.error("There was an error submitting the form!", error);
+      if (error.response) {
+        if (error.response.status === 400) {
+          alert("This email or username is already registered. Please use a different one.");
+        } else {
+          console.error("There was an error submitting the form!", error);
+        }
+      } 
+      else {
+        console.error("There was an error submitting the form!", error);
+      }
     }
   };
 
