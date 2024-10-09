@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
     'registrations',
+    'Internship',
 ]
 
 REST_FRAMEWORK = {
@@ -141,3 +142,5 @@ LOGGING = {
     },
 }
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
