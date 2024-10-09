@@ -180,7 +180,6 @@ const data = {
             //   required
             onChange={(e) => {
               const resume = e.target.files?.[0];
-              console.log(resume)
               setFile(resume);
             }}
             />
