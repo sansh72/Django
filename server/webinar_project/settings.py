@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'registrations',
     'Internship',
+    'Trainings',
 ]
 
 REST_FRAMEWORK = {

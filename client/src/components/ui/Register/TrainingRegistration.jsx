@@ -25,20 +25,20 @@ const TrainingRegistration = ({ className }) => {
       formData.append('resume', file);
     }
 
-    // try {
-    //   const res = await axiosInstance.post('/training-registration/', formData, {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   });
-    //   console.log(res.data);
-    //   navigate(`/thank-you/${formData.get('name')}`);
-    // } catch (e) {
-    //   console.log(e);
-    //   navigate(`${formData.get('name')}`);
-    // }
+    if(course){
+      formData.append('training_name' , course)
+    }
 
-    navigate(`${formData.get('name')}`);
+      const res = await axiosInstance.post('/trainings/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }).then(res => {
+      navigate(`${formData.get('name')}`);
+    })
+      .catch (e => { 
+      console.log(e.response);
+    })
   };
 
   return (
