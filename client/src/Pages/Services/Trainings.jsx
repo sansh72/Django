@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button/Button";
 import Trainingcard from "@/components/ui/Cards/Trainingcard";
 import { NavLink } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
+
 const Trainings = () => {
   let name = [
     "FULL STACK DEVELOPMENT",
@@ -34,7 +35,7 @@ const Trainings = () => {
           <h1 className=" text-blue-600 font-bold">Trainings</h1>
         </div>
       </NavLink>{" "}
-      <div className="flex justify-evenly">
+      <div className="flex flex-col md:flex-row justify-evenly">
         <Para
           className="w-2/5 text-3xl m-10 text-blue-900 h-96"
           text="Unlock the secrets to success in our exclusive training series designed to elevate your skills and knowledge"
@@ -49,68 +50,75 @@ const Trainings = () => {
       <div className="text-center">
         <Button text="weekdays" className="px-8" />
         <div className="mt-20">
-          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-3/5 h-20 text-white flex items-center">
-            <h1 className="ml-14 text-4xl">Full Stack Development</h1>
+          {/* Full Stack Development Section */}
+          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-full h-20 text-white flex items-center justify-center">
+            <h1 className="text-4xl">Full Stack Development</h1>
           </div>
-          <div className="flex justify-evenly">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
             <Trainingcard
               img={images.a}
               topic="PYTHON FULL STACK DEVELOPMENT"
-              to="/Ourmentor"
+              to="/fullstack/python"
             />
             <Trainingcard
               img={images.b}
               topic="JAVA FULL STACK DEVELOPMENT"
-              to="/Ourmentor"
+              to="/fullstack/java"
             />
             <Trainingcard
               img={images.c}
               topic="MERN FULL STACK DEVELOPMENT"
-              to="/Ourmentor"
+              to="/fullstack/mern"
             />
           </div>
-          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-3/5 h-20 text-white flex items-center">
-            <h1 className="ml-14 text-4xl">UI / UX Designing</h1>
+
+          {/* UI / UX Designing Section */}
+          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-full h-20 text-white flex items-center justify-center">
+            <h1 className="text-4xl">UI / UX Designing</h1>
           </div>
-          <div className="flex justify-evenly">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
             <Trainingcard
               img={images.d}
               topic="HTML, CSS & JAVASCRIPT"
-              to="/Ourmentor"
+              to="/uiux/basics"
             />
-            <Trainingcard img={images.e} topic="FIGMA" to="/Ourmentor" />
-            <Trainingcard img={images.f} topic="REACT JS" to="/Ourmentor" />
+            <Trainingcard img={images.e} topic="FIGMA" to="/uiux/figma" />
+            <Trainingcard img={images.f} topic="REACT JS" to="/uiux/react" />
           </div>
-          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-3/5 h-20 text-white flex items-center">
-            <h1 className="ml-14 text-4xl">Advance Learnings</h1>
+
+          {/* Advance Learnings Section */}
+          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-full h-20 text-white flex items-center justify-center">
+            <h1 className="text-4xl">Advance Learnings</h1>
           </div>
-          <div className="flex justify-evenly">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
             <Trainingcard
               img={images.g}
               topic="CYBER SECURITY"
-              to="/Ourmentor"
+              to="/advanced/cybersecurity"
             />
-            <Trainingcard img={images.h} topic="TESTING" to="/Ourmentor" />
-            <Trainingcard img={images.i} topic="AI & ML" to="/Ourmentor" />
+            <Trainingcard img={images.h} topic="TESTING" to="/advanced/testing" />
+            <Trainingcard img={images.i} topic="AI & ML" to="/advanced/aiml" />
           </div>
-          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-3/5 h-20 text-white flex items-center">
-            <h1 className="ml-14 text-4xl">Professional Development</h1>
+
+          {/* Professional Development Section */}
+          <div className="bg-[url('/src/assets/images/frame.png')] bg-cover bg-no-repeat w-full h-20 text-white flex items-center justify-center">
+            <h1 className="text-4xl">Professional Development</h1>
           </div>
-          <div className="flex justify-evenly">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
             <Trainingcard
               img={images.j}
-              topic="COMMUNICATION SKILLS & APTITUDE "
-              to="/Ourmentor"
+              topic="COMMUNICATION SKILLS & APTITUDE"
+              to="/4pprogram/professional"
             />
             <Trainingcard
               img={images.k}
               topic="ENTRY UNIVERSITY PROGRAM"
-              to="/Ourmentor"
+              to="/4pprogram/preparation"
             />
             <Trainingcard
               img={images.l}
               topic="FINISHING UNIVERSITY PROGRAM"
-              to="/Ourmentor"
+              to="/4pprogram/project"
             />
           </div>
         </div>

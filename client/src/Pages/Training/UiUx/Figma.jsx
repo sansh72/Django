@@ -24,7 +24,7 @@ const Figma = () => {
       </li>
     </div>
     <div className="text-center">
-      <Button text="Regitser" to="/Register" className="p-8" />
+      <Button text="Regitser" to="register" className="p-8" />
     </div>
     <div className="w-4/5 flex justify-between ml-64 m-10" id="about">
       <div></div>

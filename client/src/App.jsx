@@ -37,6 +37,7 @@ import HackathonDetail from "./Pages/Services/HackathonDetail";
 import Registration from "./Pages/Services/Internships/Registration";
 import RegisterSuccess from "./Pages/Services/Internships/RegisterSuccess";
 import Signup from "./components/ui/Signup/Signup";
+import TrainingRegistration from "./components/ui/Register/TrainingRegistration";
 function App() {
   return (
     <BrowserRouter>
@@ -90,26 +91,52 @@ function App() {
             <Route path="project" element={<Project />} />
           </Route>
 
-          <Route path="/advanced">
-            <Route path="aiml" element={<AiAndMl />} />
-            <Route path="cybersecurity" element={<CyberSecurity />} />
-            <Route path="testing" element={<Testing />} />
+          <Route path="advanced">
+              <Route path="aiml" element={<AiAndMl />} />
+              <Route path="aiml/:training_name" element={<TrainingRegistration />} />
+              <Route path="aiml/:training_name/:info" element={<Thanku />} />
+
+              <Route path="cybersecurity" element={<CyberSecurity />} />
+              <Route path="cybersecurity/:training_name" element={<TrainingRegistration />} />
+              <Route path="cybersecurity/:training_name/:info" element={<Thanku />} />
+
+              <Route path="testing" element={<Testing />} />
+              <Route path="testing/:training_name" element={<TrainingRegistration />} />
+              <Route path="testing/:training_name/:info" element={<Thanku />} />
+            </Route>
+
+          <Route path="fullstack">
+              <Route path="java" element={<Java />} />
+              <Route path="java/:training_name" element={<TrainingRegistration />} />
+              <Route path="java/:training_name/:info" element={<Thanku />} />
+
+              <Route path="python" element={<Python />} />
+              <Route path="python/:training_name" element={<TrainingRegistration />} />
+              <Route path="python/:training_name/:info" element={<Thanku />} />
+
+              <Route path="mern" element={<Mern />} />
+              <Route path="mern/:training_name" element={<TrainingRegistration />} />
+              <Route path="mern/:training_name/:info" element={<Thanku />} />
           </Route>
 
-          <Route path="/fullstack">
-            <Route path="java" element={<Java />} />
-            <Route path="python" element={<Python />} />
-            <Route path="mern" element={<Mern />} />
-          </Route>
+          <Route path="uiux">
+              <Route path="figma" element={<Figma />} />
+              <Route path="figma/:training_name" element={<TrainingRegistration />} />
+              <Route path="figma/:training_name/:info" element={<Thanku />} />
 
-          <Route path="/uiux">
-            <Route path="figma" element={<Figma />} />
-            <Route path="basics" element={<HtmlCss />} />
-            <Route path="react" element={<ReactUi />} />
-          </Route>
+              <Route path="basics" element={<HtmlCss />} />
+              <Route path="basics/:training_name" element={<TrainingRegistration />} />
+              <Route path="basics/:training_name/:info" element={<Thanku />} />
+
+              <Route path="react" element={<ReactUi />} />
+              <Route path="react/:training_name" element={<TrainingRegistration />} />
+              <Route path="react/:training_name/:info" element={<Thanku />} />
+            </Route>
+
+
+
         </Route>
 
-          
       </Routes>
     </BrowserRouter>
   );
