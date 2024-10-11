@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "./../../../assets/images/Go-Hackthon.png";
+import { NavLink } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="bg-[#E4EBF4] text-black py-8 w-full font-serif">
@@ -22,14 +24,14 @@ const Footer = () => {
             <h2 className="text-lg font-bold mb-4 pb-2">Company</h2>
             <ul>
               <li className="mb-2">
-                <a href="#" className="hover:underline text-black">
+                <NavLink to="/about" className="hover:underline text-black">
                   About Us
-                </a>
+                </NavLink>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline text-black">
+                <NavLink to="/contact" className="hover:underline text-black">
                   Contact
-                </a>
+                </NavLink>
               </li>
               <li className="mb-2">
                 <a href="#" className="hover:underline text-black">
@@ -87,19 +89,19 @@ const Footer = () => {
             <ul>
               <li className="mb-2 flex items-center">
                 <i className="fa-solid fa-phone mr-2 text-black"></i>
-                <a href="#" className="hover:underline text-black">
+                <a href="tel:+919910018925" className="hover:underline text-black">
                   +91 99100 18925
                 </a>
               </li>
               <li className="mb-2 flex items-center">
                 <i className="fa-solid fa-envelope mr-2 text-black"></i>
-                <a href="#" className="hover:underline text-black">
+                <a href="mailto:info@gohackathon.in" className="hover:underline text-black">
                   info@gohackathon.in
                 </a>
               </li>
               <li className="mb-2 flex items-center">
                 <i className="fa-solid fa-envelope mr-2 text-black"></i>
-                <a href="#" className="hover:underline text-black">
+                <a href="mailto:hr@gohackathon.in" className="hover:underline text-black">
                   hr@gohackathon.in
                 </a>
               </li>
@@ -110,13 +112,17 @@ const Footer = () => {
           <div>
             <h2 className="text-lg font-bold mb-4  pb-2">Follow Us</h2>
             <div className="flex space-x-4 text-2xl">
-              <a href="#">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-facebook-f text-black hover:text-blue-400 "></i>
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-instagram text-black hover:text-pink-500"></i>
               </a>
-              <a href="#">
+              <a
+                href="https://www.linkedin.com/company/mangosorange/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa-brands fa-linkedin-in text-black hover:text-blue-700"></i>
               </a>
             </div>

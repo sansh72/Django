@@ -18,7 +18,7 @@ const Trainings = () => {
     c: "/src/assets/images/mern.png",
     d: "/src/assets/images/htmlcss.svg",
     e: "/src/assets/images/figma.svg",
-    f: "/src/assets/react.svg",
+    f: "/src/assets/images/react.svg",
     g: "/src/assets/images/cybersecurity.svg",
     h: "/src/assets/images/softwareTesting.svg",
     i: "/src/assets/images/aiMl copy.svg",
