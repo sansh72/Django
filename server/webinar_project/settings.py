@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'registrations',
     'Internship',
     'Trainings',
+    'hackathons',
+    'workshops',
 ]
 
 REST_FRAMEWORK = {
