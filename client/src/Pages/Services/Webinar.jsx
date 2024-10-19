@@ -8,8 +8,8 @@ import { FaChevronLeft } from "react-icons/fa";
 const Webinars = () => {
   const navigate = useNavigate()
   let name = [
-    "Full stack Development",
-    "AIML Webinar",
+    "AI/ML Workshop",
+    "Jave Development",
     "Java Development",
   ];
 
