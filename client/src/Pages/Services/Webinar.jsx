@@ -9,7 +9,7 @@ const Webinars = () => {
   const navigate = useNavigate()
   let name = [
     "Full stack Development",
-    "Python Development",
+    "AIML Webinar",
     "Java Development",
   ];
 
