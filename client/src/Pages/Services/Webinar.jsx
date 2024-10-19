@@ -10,7 +10,7 @@ const Webinars = () => {
   let name = [
     "AI/ML Workshop",
     "Jave Development",
-    "Java Development",
+    "Python",
   ];
 
   const Register = (name)=>{
